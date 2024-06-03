@@ -1,0 +1,58 @@
+﻿<Window x:Class="library.ReaderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:library"
+        mc:Ignorable="d"
+        Title="Читатели" Height="500" Width="800">
+    <Window.Background >
+        <ImageBrush ImageSource="Foto/14.png" />
+    </Window.Background>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Книги">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Просмотр книг" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 0 0 10"/>
+                    <DataGrid x:Name="BooksDataGrid" AutoGenerateColumns="False" Height="300" Margin="0 0 0 10" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding inventory_number}" Width="*"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding title}" Width="*"/>
+                            <DataGridTextColumn Header="Автор" Binding="{Binding author}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Width="80" Height="30" Margin="10" HorizontalAlignment="Center" Click="ExitButton_Click" Background="Red"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Читатели">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Просмотр читателей" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 0 0 10"/>
+                    <DataGrid x:Name="ReadersDataGrid" AutoGenerateColumns="False" Height="300" Margin="0 0 0 10" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер читательского билета" Binding="{Binding reader_ticket_number}" Width="*"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
+                            <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Width="80" Height="30" Margin="10" HorizontalAlignment="Center" Click="ExitButton_Click" Background="Red"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Регистрация">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Просмотр регистраций" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 0 0 10"/>
+                    <DataGrid x:Name="RegistrationDataGrid" AutoGenerateColumns="False" Height="300" Margin="0 0 0 10" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="*"/>
+                            <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding inventory_number}" Width="*"/>
+                            <DataGridTextColumn Header="Номер читательского билета" Binding="{Binding reader_ticket_number}" Width="*"/>
+                            <DataGridTextColumn Header="Дата выдачи" Binding="{Binding issue_date}" Width="*"/>
+                            <DataGridTextColumn Header="Плановая дата возврата" Binding="{Binding planned_return_date}" Width="*"/>
+                            <DataGridTextColumn Header="Фактическая дата возврата" Binding="{Binding actual_return_date}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Width="80" Height="30" Margin="10" HorizontalAlignment="Center" Click="ExitButton_Click" Background="Red"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
