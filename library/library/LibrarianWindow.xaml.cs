@@ -21,6 +21,7 @@ namespace library
     /// </summary>
     public partial class LibrarianWindow : Window
     {
+        // Строка подключения к базе данных MySQL
         private const string connectionString = "server=localhost;user=root;database=library;port=3306;charset=utf8;";
 
         private MySqlDataAdapter booksAdapter;
@@ -38,6 +39,7 @@ namespace library
             LoadBooks();
             LoadReaders();
         }
+        // Инициализация адаптеров и таблиц
         private void InitializeAdaptersAndTables()
         {
             booksAdapter = new MySqlDataAdapter("SELECT * FROM Book", connectionString);
@@ -46,7 +48,7 @@ namespace library
             readersAdapter = new MySqlDataAdapter("SELECT * FROM Reader", connectionString);
             readersTable = new DataTable();
         }
-
+        // Загрузка данных о книгах из базы данных
         private void LoadBooks()
         {
             try
@@ -60,7 +62,7 @@ namespace library
                 MessageBox.Show("Ошибка при загрузке данных книг: " + ex.Message);
             }
         }
-
+        // Загрузка данных о читателях из базы данных
         private void LoadReaders()
         {
             try
@@ -74,7 +76,7 @@ namespace library
                 MessageBox.Show("Ошибка при загрузке данных читателей: " + ex.Message);
             }
         }
-
+        // Обработчик нажатия кнопки добавления книги
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
             AddBookWindow addBookWindow = new AddBookWindow();
@@ -88,7 +90,7 @@ namespace library
                 booksAdapter.Update(booksTable);
             }
         }
-
+        // Обработчик нажатия кнопки добавления читателя
         private void AddReader_Click(object sender, RoutedEventArgs e)
         {
             AddReaderWindow addReaderWindow = new AddReaderWindow();
@@ -102,7 +104,7 @@ namespace library
                 readersAdapter.Update(readersTable);
             }
         }
-
+        // Обработчик нажатия кнопки сохранения изменений
         private void SaveBooksChanges_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -120,7 +122,7 @@ namespace library
                 MessageBox.Show("Ошибка при сохранении изменений: " + ex.Message);
             }
         }
-
+        // Обработчик нажатия кнопки выхода
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

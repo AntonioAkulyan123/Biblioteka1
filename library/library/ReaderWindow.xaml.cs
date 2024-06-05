@@ -25,10 +25,11 @@ namespace library
         public ReaderWindow()
         {
             InitializeComponent();
-            LoadBooks();
-            LoadReaders();
-            LoadRegistrations();
+            LoadBooks(); // Загрузка данных кни
+            LoadReaders(); // Загрузка данных читателей
+            LoadRegistrations(); // Загрузка данных регистраций
         }
+        // Метод для загрузки данных книг из базы данных
         private void LoadBooks()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -48,7 +49,7 @@ namespace library
                 }
             }
         }
-
+        // Метод для загрузки данных читателей из базы данных
         private void LoadReaders()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -68,7 +69,7 @@ namespace library
                 }
             }
         }
-
+        // Метод для загрузки данных регистраций из базы данных
         private void LoadRegistrations()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -88,7 +89,7 @@ namespace library
                 }
             }
         }
-
+        // Обработчик события нажатия кнопки "Выход"
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

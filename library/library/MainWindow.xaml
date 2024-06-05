@@ -8,16 +8,16 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Авторизация" Height="350" Width="610">
     <Window.Background >
-        <ImageBrush ImageSource="Foto/13.jpg" />
+        <ImageBrush ImageSource="Foto/14.png" />
     </Window.Background>
     <Grid>
-        <TextBlock Text="Авторизация" FontSize="36" Margin="10" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White"/>
+        <TextBlock Text="Авторизация" FontSize="36" Margin="10" HorizontalAlignment="Center" FontWeight="Bold"/>
         <StackPanel Margin="90">
-            <TextBlock Text="Логин:" HorizontalAlignment="Center" FontSize="18" Foreground="White"/>
-            <TextBox FontSize="16" x:Name="txtUsername" Margin="0 0 0 10" Foreground="White" BorderBrush="#7FFFFFFF"/>
+            <TextBlock Text="Логин:" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBox FontSize="16" x:Name="txtUsername" Margin="0 0 0 10"/>
 
-            <TextBlock Text="Пароль:" HorizontalAlignment="Center" FontSize="18" Foreground="White"/>
-            <PasswordBox FontSize="16" x:Name="txtPassword" Margin="0 0 0 10" BorderBrush="#7FFFFFFF" Foreground="White"/>
+            <TextBlock Text="Пароль:" HorizontalAlignment="Center" FontSize="18"/>
+            <PasswordBox FontSize="16" x:Name="txtPassword" Margin="0 0 0 10"/>
 
         </StackPanel>
         <StackPanel>

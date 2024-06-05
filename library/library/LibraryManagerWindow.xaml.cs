@@ -21,8 +21,10 @@ namespace library
     /// </summary>
     public partial class LibraryManagerWindow : Window
     {
+        // Строка подключения к базе данных MySQL
         private const string connectionString = "server=localhost;user=root;database=library;port=3306;charset=utf8;";
 
+        // Адаптеры и таблицы данных для книг, читателей и регистраций
         private MySqlDataAdapter booksAdapter;
         private DataTable booksTable;
 
@@ -40,7 +42,7 @@ namespace library
             LoadReaders();
             LoadRegistrations();
         }
-
+        // Инициализация адаптеров и таблиц данных
         private void InitializeAdaptersAndTables()
         {
             booksAdapter = new MySqlDataAdapter("SELECT * FROM Book", connectionString);
@@ -52,7 +54,7 @@ namespace library
             registrationAdapter = new MySqlDataAdapter("SELECT * FROM Registration", connectionString);
             registrationTable = new DataTable();
         }
-
+        // Загрузка данных книг из базы данных
         private void LoadBooks()
         {
             try
@@ -66,7 +68,7 @@ namespace library
                 MessageBox.Show("Ошибка при загрузке данных книг: " + ex.Message);
             }
         }
-
+        // Загрузка данных читателей из базы данных
         private void LoadReaders()
         {
             try
@@ -80,7 +82,7 @@ namespace library
                 MessageBox.Show("Ошибка при загрузке данных читателей: " + ex.Message);
             }
         }
-
+        // Загрузка данных регистраций из базы данных
         private void LoadRegistrations()
         {
             try
@@ -94,7 +96,7 @@ namespace library
                 MessageBox.Show("Ошибка при загрузке данных регистрации: " + ex.Message);
             }
         }
-
+        // Обработчик события нажатия кнопки "Добавить книгу"
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
             AddBookWindow addBookWindow = new AddBookWindow();
@@ -108,7 +110,7 @@ namespace library
                 booksAdapter.Update(booksTable);
             }
         }
-
+        // Обработчик события нажатия кнопки "Добавить читателя"
         private void AddReader_Click(object sender, RoutedEventArgs e)
         {
             AddReaderWindow addReaderWindow = new AddReaderWindow();
@@ -122,7 +124,7 @@ namespace library
                 readersAdapter.Update(readersTable);
             }
         }
-
+        // Обработчик события нажатия кнопки "Сохранить изменения"
         private void SaveBooksChanges_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -143,7 +145,7 @@ namespace library
                 MessageBox.Show("Ошибка при сохранении изменений: " + ex.Message);
             }
         }
-
+        // Обработчик события нажатия кнопки "Выход"
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

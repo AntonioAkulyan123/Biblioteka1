@@ -22,12 +22,13 @@ namespace library
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Строка подключения к базе данных MySQL
         private const string connectionString = "server=localhost;user=root;database=library;port=3306;charset=utf8;";
         public MainWindow()
         {
             InitializeComponent();
         }
-
+        // Обработчик события нажатия кнопки "Войти"
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;
@@ -61,7 +62,7 @@ namespace library
                 MessageBox.Show("Неверное имя пользователя или пароль.");
             }
         }
-
+        // Метод для проверки подлинности пользователя
         private bool ValidateUser(string username, string password, out string role)
         {
             role = string.Empty;
@@ -91,7 +92,7 @@ namespace library
                 }
             }
 
-            return false;
+            return false; // Возвращение false при неудачной аутентификации
         }
     }
 }
